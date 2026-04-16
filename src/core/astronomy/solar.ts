@@ -63,3 +63,20 @@ export function solarAltitudeFromDate(
     hourAngle: H
   });
 }
+
+// 🌍 Angle horaire avec longitude (approx)
+export function hourAngleFromLocation(
+  date: Date,
+  longitude: Angle
+): Angle {
+  const utcHours =
+    date.getUTCHours() +
+    date.getUTCMinutes() / 60;
+
+  // correction longitude (15° = 1h)
+  const localSolarTime = utcHours + longitude.value / 15;
+
+  const deg = (localSolarTime - 12) * 15;
+
+  return { value: deg, unit: 'deg' };
+}
