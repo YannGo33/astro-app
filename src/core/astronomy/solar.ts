@@ -49,3 +49,17 @@ export function hourAngle(date: Date): Angle {
 
   return { value: deg, unit: 'deg' };
 }
+
+export function solarAltitudeFromDate(
+  date: Date,
+  latitude: Angle
+): number {
+  const declination = solarDeclinationApprox(date);
+  const H = hourAngle(date);
+
+  return solarAltitude({
+    latitude,
+    declination,
+    hourAngle: H
+  });
+}
