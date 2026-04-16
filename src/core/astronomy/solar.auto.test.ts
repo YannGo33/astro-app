@@ -2,7 +2,8 @@ import { describe, it, expect } from 'vitest';
 import {
   dayOfYear,
   solarDeclinationApprox,
-  hourAngle
+  hourAngle,
+  hourAnglePrecise
 } from './solar.js';
 
 describe('solar auto', () => {
@@ -26,4 +27,14 @@ describe('solar auto', () => {
     expect(h.value).toBeCloseTo(0, 5);
   });
 
+  it('angle horaire précis proche midi', () => {
+    const d = new Date('2024-03-20T12:00:00Z');
+
+    const h = hourAnglePrecise(
+      d,
+      { value: 0, unit: 'deg' }
+    );
+
+    expect(Math.abs(h.value)).toBeLessThan(3);
+    });
 });

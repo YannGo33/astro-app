@@ -80,3 +80,35 @@ export function hourAngleFromLocation(
 
   return { value: deg, unit: 'deg' };
 }
+
+// ⏱️ équation du temps (minutes)
+export function equationOfTime(date: Date): number {
+  const N = dayOfYear(date);
+  const B = ((360 / 365) * (N - 81) * Math.PI) / 180;
+
+  return (
+    9.87 * Math.sin(2 * B) -
+    7.53 * Math.cos(B) -
+    1.5 * Math.sin(B)
+  );
+}
+
+export function hourAnglePrecise(
+  date: Date,
+  longitude: Angle
+): Angle {
+  const utcHours =
+    date.getUTCHours() +
+    date.getUTCMinutes() / 60;
+
+  const eot = equationOfTime(date); // minutes
+
+  const solarTime =
+    utcHours +
+    longitude.value / 15 +
+    eot / 60;
+
+  const deg = (solarTime - 12) * 15;
+
+  return { value: deg, unit: 'deg' };
+}

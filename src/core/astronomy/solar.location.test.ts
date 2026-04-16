@@ -13,5 +13,5 @@ describe('hourAngleFromLocation', () => {
 
     expect(h.value).toBeCloseTo(0, 5);
   });
-
+  
 });
