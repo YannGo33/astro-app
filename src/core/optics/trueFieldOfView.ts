@@ -10,5 +10,5 @@ export function trueFieldOfView(input: TrueFieldInput): number {
     throw new Error("Magnification must be > 0");
   }
 
-  return apparentFov / magnification;
+  return input.apparentFov / input.magnification;
 }
