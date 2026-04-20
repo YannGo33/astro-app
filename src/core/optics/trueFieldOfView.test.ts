@@ -7,7 +7,7 @@ describe('trueFieldOfView', () => {
   it('calcule correctement', () => {
     expect(
       trueFieldOfView({
-        apparentField: 50,
+        apparentFov: 50,
         magnification: 100
       })
     ).toBe(0.5);
@@ -16,7 +16,7 @@ describe('trueFieldOfView', () => {
   // ✅ Cas réaliste
   it('configuration réaliste télescope', () => {
     const result = trueFieldOfView({
-      apparentField: 68,
+      apparentFov: 68,
       magnification: 34
     });
 
@@ -26,7 +26,7 @@ describe('trueFieldOfView', () => {
   // ✅ Grand champ apparent
   it('gère un grand champ apparent', () => {
     const result = trueFieldOfView({
-      apparentField: 82,
+      apparentFov: 82,
       magnification: 100
     });
 
@@ -36,7 +36,7 @@ describe('trueFieldOfView', () => {
   // ✅ Faible grossissement
   it('gère un faible grossissement', () => {
     const result = trueFieldOfView({
-      apparentField: 50,
+      apparentFov: 50,
       magnification: 10
     });
 
@@ -46,7 +46,7 @@ describe('trueFieldOfView', () => {
   // ✅ Résultat non entier
   it('gère un résultat non entier', () => {
     const result = trueFieldOfView({
-      apparentField: 68,
+      apparentFov: 68,
       magnification: 27
     });
 
@@ -57,7 +57,7 @@ describe('trueFieldOfView', () => {
   it('rejette grossissement nul', () => {
     expect(() =>
       trueFieldOfView({
-        apparentField: 50,
+        apparentFov: 50,
         magnification: 0
       })
     ).toThrow();
@@ -66,7 +66,7 @@ describe('trueFieldOfView', () => {
   it('rejette grossissement négatif', () => {
     expect(() =>
       trueFieldOfView({
-        apparentField: 50,
+        apparentFov: 50,
         magnification: -10
       })
     ).toThrow();
@@ -76,7 +76,7 @@ describe('trueFieldOfView', () => {
   it('champ apparent nul → champ réel nul', () => {
     expect(
       trueFieldOfView({
-        apparentField: 0,
+        apparentFov: 0,
         magnification: 100
       })
     ).toBe(0);
@@ -85,7 +85,7 @@ describe('trueFieldOfView', () => {
   // ⚠️ Cas extrêmes
   it('gère champ apparent très large', () => {
     const result = trueFieldOfView({
-      apparentField: 120,
+      apparentFov: 120,
       magnification: 50
     });
 

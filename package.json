@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx src/test.ts",
+    "dev:api": "tsx src/api/server.ts",
     "test": "vitest",
     "build": "tsc",
     "start": "node dist/test.js",
@@ -16,6 +17,7 @@
   "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@types/express": "^5.0.6",
     "@types/node": "^25.6.0",
     "@typescript-eslint/eslint-plugin": "^8.58.2",
     "@typescript-eslint/parser": "^8.58.2",
@@ -26,6 +28,7 @@
     "vitest": "^4.1.4"
   },
   "dependencies": {
+    "express": "^5.2.1",
     "tsx": "^4.21.0"
   },
   "engines": {
