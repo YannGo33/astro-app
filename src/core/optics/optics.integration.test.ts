@@ -29,7 +29,7 @@ describe('optics integration', () => {
   const P = exitPupil({ 
     diameter: { value: 200, unit: 'mm' },
     magnification: G });
-  const CR = trueFieldOfView({ apparentField: 50, magnification: G });
+  const CR = trueFieldOfView({ apparentFov: 50, magnification: G });
 
   expect(G).toBeCloseTo(1200 / 25, 5);
   expect(P).toBeCloseTo(200 / G, 5);
