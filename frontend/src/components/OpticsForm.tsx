@@ -11,7 +11,7 @@ export default function OpticsForm() {
     apparentFov: 68
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const payload = {
