@@ -18,6 +18,33 @@ API (Express)
 ↓
 Core (TypeScript pur)
 
+## 📁 Structure détaillée du projet
+astro-app/
+├── frontend/
+│ └── src/
+│ ├── components/ # composants UI (React)
+│ ├── services/ # communication avec l’API
+│ ├── assets/ # images, styles
+│ └── App.tsx # point d’entrée UI
+│
+├── src/
+│ ├── api/
+│ │ ├── controllers/ # logique des endpoints
+│ │ ├── routes/ # définition des routes
+│ │ └── server.ts # serveur Express
+│
+│ └── core/
+│ ├── optics/ # calculs optiques
+│ ├── astronomy/ # calculs astronomiques
+│ ├── angles/ # gestion des angles
+│ ├── trigonometry/ # fonctions trigonométriques
+│ └── units/ # gestion des unités
+
+### 🔗 Règle d’architecture
+
+- `core` ne dépend de rien (logique pure)
+- `api` dépend du core
+- `frontend` dépend de l’API uniquement
 
 ### 🔹 Core
 - Contient toute la logique scientifique
