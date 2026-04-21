@@ -1,0 +1,1 @@
+{"version":3,"file":"magnification.d.ts","sourceRoot":"","sources":["magnification.ts"],"names":[],"mappings":"AACA,OAAO,KAAK,EAAE,MAAM,EAAE,MAAM,mBAAmB,CAAC;AAGhD,MAAM,WAAW,kBAAkB;IACjC,cAAc,EAAE,MAAM,CAAC;IACvB,aAAa,EAAE,MAAM,CAAC;CACvB;AAED,wBAAgB,aAAa,CAAC,KAAK,EAAE,kBAAkB,GAAG,MAAM,CAS/D"}

@@ -5,8 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx src/test.ts",
-    "dev:api": "tsx src/api/server.ts",
+    "dev": "tsx packages/test.ts",
+    "dev:api": "tsx apps/backend/api/server.ts",
     "test": "vitest",
     "build": "tsc",
     "start": "node dist/test.js",

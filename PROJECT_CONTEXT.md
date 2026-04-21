@@ -20,25 +20,25 @@ Core (TypeScript pur)
 
 ## 📁 Structure détaillée du projet
 astro-app/
-├── frontend/
-│ └── src/
-│ ├── components/ # composants UI (React)
-│ ├── services/ # communication avec l’API
-│ ├── assets/ # images, styles
-│ └── App.tsx # point d’entrée UI
-│
-├── src/
-│ ├── api/
-│ │ ├── controllers/ # logique des endpoints
-│ │ ├── routes/ # définition des routes
-│ │ └── server.ts # serveur Express
-│
-│ └── core/
-│ ├── optics/ # calculs optiques
-│ ├── astronomy/ # calculs astronomiques
-│ ├── angles/ # gestion des angles
-│ ├── trigonometry/ # fonctions trigonométriques
-│ └── units/ # gestion des unités
+├── apps/
+│ ├── backend/
+│ │ ├── api/     
+│ │ │ ├── controllers/    # API Express
+│ │ │ ├── routes/         # définition des routes
+│ │ │ └── server.ts       # serveur Express      
+│ ├── frontend            # UI React (Vite)
+│ │ ├── src/
+│ │ │ ├── assets/         # ressources
+│ │ │ ├── components/     # composants React
+│ │ │ ├── services/       # appels API
+│ │ │ └── App.tsx         # point d’entrée UI
+├── packages/ 
+│ ├── core/               # logique scientifique
+│ │ ├── angles/           # gestion des angles
+│ │ ├── astronomy/        # calculs astronomiques
+│ │ ├── optics/           # calculs optiques
+│ │ ├── trigonometry/     # fonctions trigonométriques
+│ │ └── units/            # gestion des unités
 
 ### 🔗 Règle d’architecture
 

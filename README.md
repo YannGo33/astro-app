@@ -24,23 +24,23 @@ Core (TypeScript)
 
 ## 📁 Structure du projet
 astro-app/
-├── frontend/ # UI React (Vite)
-│ └── src/
-│ ├── components/ # composants React
-│ ├── services/ # appels API
-│ └── assets/ # ressources
-│
-├── src/
-│ ├── api/ # API Express
-│ │ ├── controllers/
-│ │ └── routes/
-│ │
-│ └── core/ # logique scientifique
-│ ├── optics/
-│ ├── astronomy/
-│ ├── angles/
-│ ├── trigonometry/
-│ └── units/
+├── apps/
+│ ├── backend/
+│ │ ├── api/     
+│ │ │ ├── controllers/    # API Express
+│ │ │ └── routes/         
+│ ├── frontend            # UI React (Vite)
+│ │ ├── src/
+│ │ │ ├── assets/         # ressources
+│ │ │ ├── components/     # composants React
+│ │ │ └── services/       # appels API
+├── packages/ 
+│ ├── core/               # logique scientifique
+│ │ ├── angles/
+│ │ ├── astronomy/
+│ │ ├── optics/
+│ │ ├── trigonometry/
+│ │ └── units/
 
 ### 🔹 Core
 - Logique scientifique pure
