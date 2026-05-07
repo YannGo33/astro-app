@@ -12,13 +12,14 @@ Application web scientifique en astronomie destinée à :
 ## 🧱 Architecture globale
 
 Le projet suit une architecture en couches :
-UI (React)
-↓
-API (Express)
-↓
-Core (TypeScript pur)
+- UI (React)
+- API (Express)
+- Core (TypeScript pur)
+
+---
 
 ## 📁 Structure détaillée du projet
+```
 astro-app/
 ├── apps/
 │ ├── backend/
@@ -39,12 +40,15 @@ astro-app/
 │ │ ├── optics/           # calculs optiques
 │ │ ├── trigonometry/     # fonctions trigonométriques
 │ │ └── units/            # gestion des unités
+```
 
 ### 🔗 Règle d’architecture
 
 - `core` ne dépend de rien (logique pure)
 - `api` dépend du core
 - `frontend` dépend de l’API uniquement
+
+---
 
 ### 🔹 Core
 - Contient toute la logique scientifique
@@ -93,15 +97,9 @@ astro-app/
 
 Calculs disponibles :
 
-- 🔭 Grossissement
-M = F_telescope / F_eyepiece
-
-- 👁️ Pupille de sortie
-P = D / M
-
-- 🌌 Champ réel
-TFOV = AFOV / M
-
+- 🔭 Grossissement : M = F_telescope / F_eyepiece
+- 👁️ Pupille de sortie : P = D / M
+- 🌌 Champ réel : TFOV = AFOV / M
 
 ---
 
@@ -111,7 +109,6 @@ Structure utilisée :
 
 ```ts
 type LengthUnit = 'mm' | 'cm' | 'm';
-
 interface Length {
 value: number;
 unit: LengthUnit;
@@ -120,39 +117,47 @@ unit: LengthUnit;
 - Conversion interne en mm
 - Centralisée dans units
 
-🔌 API
-Endpoint principal
+### API
+
+**Endpoint principal**
 
     POST /api/optics
-Input
+
+**Input**
+```json
 {
   "telescopeFocal": { "value": 1000, "unit": "mm" },
   "telescopeDiameter": { "value": 200, "unit": "mm" },
   "eyepieceFocal": { "value": 10, "unit": "mm" },
   "apparentFov": 68
 }
-Output
+```
+
+**Output**
+```json
 {
   "magnification": 100,
   "exitPupil": 2,
   "trueFov": 0.68
 }
+```
 
-🧪 Tests
+### 🧪 Tests
+
 - Framework : Vitest
 - Types :
     - unit tests (core)
     - integration tests (optics)
 
-Objectifs :
+**Objectifs** :
 
 - valider les formules
 - tester les cas limites
 - éviter les NaN
 
-🎨 Frontend actuel
+### 🎨 Frontend actuel
 
-Fonctionnalités :
+**Fonctionnalités** :
 
 - formulaire utilisateur
 - validation basique (> 0)
@@ -162,12 +167,25 @@ Fonctionnalités :
     - arrondis
 - gestion d’erreur simple
 
-CORS configuré côté API
+- formulaire utilisateur
+- validation basique (> 0)
+- appel API via fetch
+- affichage des résultats avec :
+  - unités
+  - arrondis
+  - gestion d’erreur simple
+  
+**CORS configuré côté API**
 
-🔄 Workflow Git
-Méthode
+### 🔄 Workflow Git
+
+**Méthode**
+
 feature branch → commit → push → merge → delete
-Exemple
+
+**Exemple**
+
+```bash
 git checkout -b feature/optics-ui
 git add .
 git commit -m "feat: add optics UI"
@@ -180,66 +198,88 @@ git push
 
 git branch -d feature/optics-ui
 git push origin --delete feature/optics-ui
+```
 
-📏 Bonnes pratiques
-Core
+### 🎲 Bonnes pratiques
+
+**Core**
+
 - fonctions pures
 - aucun accès I/O
 - typage strict
 - tests obligatoires
 
-API
+**API**
+
 - rôle d’adaptateur
 - validation des entrées
 - mapping clair des données
 
-UI
+**UI**
+
 - pas de logique métier
 - appels API uniquement
 - affichage clair + unités
 
-🚀 Roadmap (prochaines étapes)
-UI / UX
+### 🚀 Roadmap (prochaines étapes)
+
+#### UI / UX
+
 - améliorer layout
 - composants réutilisables
 - meilleure lisibilité
-Visualisation
+
+#### Visualisation
+
 - champ de vision (cercle)
 - pupille de sortie
 - SVG / Canvas
-Scientifique
+
+#### Scientifique
+
 - trigonométrie
 - position du Soleil
 - cadrans solaires
 - précision accrue
-Pédagogie
+
+#### Pédagogie
+
 - pages explicatives
 - vulgarisation
 - illustrations
+### 🧠 Philosophie du projet
 
-🧠 Philosophie du projet
 - rigueur scientifique
 - pédagogie
 - architecture propre
 - testabilité
 - évolutivité
-📌 Convention importante
-Séparation des responsabilités
-Couche	Responsabilité
-Core	calculs
-API	transport + adaptation
-UI	interaction utilisateur
 
-🔗 Contrat API (à maintenir)
+### 🔥 Convention importante
+
+**Séparation des responsabilités**
+
+| Couche  | Responsabilité |
+|---------|----------------|
+| Core    | calculs        |
+| API     | transport + adaptation |
+| UI      | interaction utilisateur |
+
+---
+
+## 🔗 Contrat API (à maintenir)
+
+```ts
 interface OpticsResult {
   magnification: number;
   exitPupil: number;
   trueFov: number;
 }
+```
 
-👉 Toute évolution doit respecter ou versionner ce contrat.
+**👉 Toute évolution doit respecter ou versionner ce contrat.**
 
-📚 Documentation
+### 📚 Documentation
 
 À maintenir dans Notion :
 
@@ -248,7 +288,9 @@ interface OpticsResult {
 - choix d’architecture
 - décisions techniques
 
-👤 Auteur
+---
+
+## 👤 Auteur
 
 Projet développé dans une logique :
 - pédagogique
